@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>WebShop Creating form</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3 class="pt-5">Könyv hozzáadása</h3>
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/web-shop/create}">
+                <div class="form-group">
+                    <label for="name">Könyv készítő form</label>
+                </div>
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="text"
+                           id="id"
+                           name="id"
+                           readonly
+                           class="form-control"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="title">Cím</label>
+                    <input type="text"
+                           id="title"
+                           name="title"
+                           class="form-control"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="author">Író</label>
+                    <input type="text"
+                           id="author"
+                           name="author"
+                           class="form-control"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="category">Kategória</label>
+                    <select id="category"
+                            name="category">
+                        <option value="ACTION">Action</option>
+                        <option value="ADVENTURE">Adventure</option>
+                        <option value="CRIME">Crime</option>
+                        <option value="EDUCATIONAL">Educational</option>
+                        <option value="FANTASY">Fantasy</option>
+                        <option value="HISTORICAL_FICTION">Historical fiction</option>
+                        <option value="HORROR">Horror</option>
+                        <option value="KIDS">Kids</option>
+                        <option value="ROMANCE">Romance</option>
+                        <option value="SCI_FI">Sci-fi</option>
+                        <option value="THRILLER">Thriller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Kiadás dátuma</label>
+                    <input type="text"
+                           id="date"
+                           name="date"
+                           class="form-control"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="cover">Borítás</label>
+                    <select id="cover"
+                            name="cover">
+                        <option value="SOFT_COVER">Soft cover</option>
+                        <option value="HARD_COVER">Hard cover</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Ár</label>
+                    <input type="text"
+                           id="price"
+                           name="price"
+                           class="form-control"
+                    />
+                </div>
+
+                <button class="btn btn-primary pt-2 mt-2"
+                        type="submit">Könyv hozzáadása
+                </button>
+                <a th:href="@{/web-shop/create}"
+                   class="btn btn-secondary pt-2 mt-2"
+                   type="submit">Mégsem</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

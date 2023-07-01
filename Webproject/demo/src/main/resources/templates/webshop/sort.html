@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Könyvek listája</title>
+
+  <link rel="stylesheet"
+        th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+  <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+  <h3 class="pt-5">Könyvek listája</h3>
+  <label for="categorysel">Kategória kiválasztása</label>
+  <select id="categorysel"
+          name="categorysel">
+    <option value="ACTION">Action</option>
+    <option value="ADVENTURE">Adventure</option>
+    <option value="CRIME">Crime</option>
+    <option value="EDUCATIONAL">Educational</option>
+    <option value="FANTASY">Fantasy</option>
+    <option value="HISTORICAL_FICTION">Historical fiction</option>
+    <option value="HORROR">Horror</option>
+    <option value="KIDS">Kids</option>
+    <option value="ROMANCE">Romance</option>
+    <option value="SCI_FI">Sci-fi</option>
+    <option value="THRILLER">Thriller</option>
+  </select>
+  <a th:href="@{/web-shop/select}"
+     type="button"
+     class="btn btn-primary">Kiválasztás</a>
+
+
+  <table class="table table-striped pt-5">
+    <!--        <caption>Könyvek listája</caption>-->
+    <thread>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cím</th>
+        <th scope="col">Író</th>
+        <th scope="col">Kategória</th>
+        <th scope="col">Kiadás éve</th>
+        <th scope="col">Borítás</th>
+        <th scope="col">Ár</th>
+      </tr>
+    </thread>
+    <tbody>
+    <tr th:each="webShop: ${webShops}">
+      <th scope="row"
+          th:text="${webShop.id}"></th>
+      <td th:text="${webShop.title}"></td>
+      <td th:text="${webShop.author}"></td>
+      <td th:text="${webShop.category}"></td>
+      <td th:text="${webShop.date}"></td>
+      <td th:text="${webShop.cover}"></td>
+      <td th:text="${webShop.price} + Ft"></td>
+      <td>
+        <a th:href="@{'/web-shop/' + ${webShop.id} + '/cart'}"
+           type="button"
+           class="btn btn-primary">Kosárba</a>
+        <a th:href="@{'/web-shop/' + ${webShop.id}}"
+           type="button"
+           class="btn btn-warning">Szerkesztés</a>
+        <a th:href="@{'/web-shop/' + ${webShop.id} +  '/delete'}"
+           type="button"
+           class="btn btn-danger">Törlés</a>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
